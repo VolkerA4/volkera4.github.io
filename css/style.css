@@ -141,6 +141,71 @@ main { padding-block: clamp(2rem, 6vw, 4rem) clamp(3rem, 8vw, 6rem); }
   object-fit: cover;
 }
 
+/* ---------- Carousel ---------- */
+.carousel {
+  position: relative;
+  margin: 0 0 1.25rem;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  background: var(--surface);
+  border-radius: 6px;
+}
+
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.carousel-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  scroll-snap-align: center;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(42, 44, 48, 0.75);
+  color: var(--text);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carousel-btn:hover { background: var(--bg); }
+.carousel-btn:disabled { opacity: 0.3; cursor: default; }
+.carousel-prev { left: 0.5rem; }
+.carousel-next { right: 0.5rem; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.carousel-dots button {
+  width: 0.625rem;
+  height: 0.625rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+}
+
+.carousel-dots button[aria-current="true"] { background: var(--accent); }
+
 /* ---------- Skills page ---------- */
 .skills-list {
   list-style: none;
